@@ -107,8 +107,9 @@ BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam)
 
 const std::vector<Window> EnumerateWindows()
 {
-    std::vector<Window> windows;
-    EnumWindows(EnumWindowsProc, reinterpret_cast<LPARAM>(&windows));
+	std::vector<Window> windows;
+	EnumWindows(EnumWindowsProc, reinterpret_cast<LPARAM>(&windows));
 
-    return windows;
+
+	return windows;
 }

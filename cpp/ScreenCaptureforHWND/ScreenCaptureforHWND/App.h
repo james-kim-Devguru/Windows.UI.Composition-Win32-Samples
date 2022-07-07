@@ -12,6 +12,7 @@ public:
         winrt::Windows::UI::Composition::ContainerVisual const& root);
 
     void StartCapture(HWND hwnd);
+	void StartCapture(HMONITOR hwnd);
 
 private:
     winrt::Windows::UI::Composition::Compositor m_compositor{ nullptr };

@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{045FFB0E-D0D4-404D-8C33-13C7074B3236}</ProjectGuid>
     <RootNamespace>ScreenCaptureforHWND</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.18346.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.20348.0</WindowsTargetPlatformVersion>
     <ProjectName>ScreenCaptureforHWND</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -97,6 +97,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>windowsapp.lib;dwmapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.29.30133\lib\onecore\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -150,6 +151,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="SimpleCapture.h" />
     <ClInclude Include="Win32WindowEnumeration.h" />
+    <ClInclude Include="Win32MonitorEnumeration.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

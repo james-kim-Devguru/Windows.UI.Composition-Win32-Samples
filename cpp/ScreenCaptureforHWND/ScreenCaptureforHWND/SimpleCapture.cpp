@@ -2,7 +2,7 @@
 //
 // Copyright (c) Microsoft. All rights reserved.
 // This code is licensed under the MIT License (MIT).
-// THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+// THE SOFTWARE IS PROVIDED “AS IS? WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
 // INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
 // IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
@@ -53,7 +53,12 @@ SimpleCapture::SimpleCapture(
         DirectXPixelFormat::B8G8R8A8UIntNormalized,
         2,
 		size);
+
     m_session = m_framePool.CreateCaptureSession(m_item);
+
+	//m_session.IsCursorCaptureEnabled(false);
+	//m_session.IsBorderRequired(false);
+	
     m_lastSize = size;
 	m_frameArrived = m_framePool.FrameArrived(auto_revoke, { this, &SimpleCapture::OnFrameArrived });
 }
