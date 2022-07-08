@@ -27,6 +27,27 @@ using namespace Windows::Foundation::Numerics;
 using namespace Windows::UI;
 using namespace Windows::UI::Composition;
 
+//static bool winrt_capture_border_toggle_supported()
+//{
+//	try {
+//		return winrt::Windows::Foundation::Metadata::ApiInformation::
+//			IsPropertyPresent(
+//				L"Windows.Graphics.Capture.GraphicsCaptureSession",
+//				L"IsBorderRequired");
+//	}
+//	catch (const winrt::hresult_error &err) {
+//		//blog(LOG_ERROR, "winrt_capture_border_toggle_supported (0x%08X): %ls",
+//		//	err.code().value, err.message().c_str());
+//		return false;
+//	}
+//	catch (...) {
+//		//blog(LOG_ERROR, "winrt_capture_border_toggle_supported (0x%08X)",
+//		//	winrt::to_hresult().value);
+//		return false;
+//	}
+//}
+
+
 SimpleCapture::SimpleCapture(
     IDirect3DDevice const& device,
     GraphicsCaptureItem const& item)
@@ -55,9 +76,8 @@ SimpleCapture::SimpleCapture(
 		size);
 
     m_session = m_framePool.CreateCaptureSession(m_item);
-
 	//m_session.IsCursorCaptureEnabled(false);
-	//m_session.IsBorderRequired(false);
+	//m_session.IsBorderRequired(false); // win11에서만 사용 가능한 것으로 보임, windows 10 22H2 이후 재확인 필요
 	
     m_lastSize = size;
 	m_frameArrived = m_framePool.FrameArrived(auto_revoke, { this, &SimpleCapture::OnFrameArrived });

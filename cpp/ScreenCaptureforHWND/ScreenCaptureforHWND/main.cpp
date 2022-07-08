@@ -76,6 +76,17 @@ int CALLBACK WinMain(
 	// Init COM
 	init_apartment(apartment_type::single_threaded);
 
+	// Check to see that capture is supported
+	auto isCaptureSupported = winrt::Windows::Graphics::Capture::GraphicsCaptureSession::IsSupported();
+	if (!isCaptureSupported)
+	{
+		MessageBoxW(nullptr,
+			L"Screen capture is not supported on this device for this release of Windows!",
+			L"Win32CaptureSample",
+			MB_OK | MB_ICONERROR);
+		return 1;
+	}
+
     // Create the window
     WNDCLASSEX wcex = {};
     wcex.cbSize = sizeof(WNDCLASSEX);
